@@ -11,12 +11,13 @@ import android.widget.Button;
 
 import com.ariel.healthbit.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity
 {
     Toolbar toolbar;
     Button signupbutton,signinbutton;
-    FirebaseAuth ref;
+    FirebaseUser user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +25,15 @@ public class MainActivity extends AppCompatActivity
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if(user != null)
+        {
+            Intent myIntent = new Intent(getApplicationContext(),MainProfile.class);
+            startActivity(myIntent);
+            this.finish();
+
+        }
         signupbutton = (Button) findViewById(R.id.activitymain_signup); //move to the sign up activity
         signupbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view)

@@ -13,15 +13,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.ariel.healthbit.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class signin extends AppCompatActivity
 {
@@ -33,8 +29,8 @@ public class signin extends AppCompatActivity
    EditText email;
    EditText password;
    Toolbar toolbar;
-   Button back,login;
-   TextView signup;
+   Button login;
+   TextView signup,forgotpassword;
    FirebaseAuth ref=FirebaseAuth.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,17 +43,8 @@ public class signin extends AppCompatActivity
         toolbar = (Toolbar) findViewById(R.id.toolbarSignIn);
         setSupportActionBar(toolbar);
 
-        back = (Button) findViewById(R.id.backSignIn); //back to the activity main
-        back.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view)
-            {
-                Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(myIntent);
-            }
 
-        });
-
-        login = (Button) findViewById(R.id.login); //login to the app with email and password
+        login = (Button) findViewById(R.id.signin_login); //login to the app with email and password
         login.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view)
             {
@@ -93,13 +80,12 @@ public class signin extends AppCompatActivity
                     {
                         if (task.isSuccessful()) //check if the connection was successful
                         {
-                            Toast.makeText(signin.this, "hello", Toast.LENGTH_SHORT).show();
                             Intent myIntent = new Intent(getApplicationContext(), MainProfile.class);
                             startActivity(myIntent);
                         }
                         else
                         {
-                            Toast.makeText(signin.this, "not work", Toast.LENGTH_SHORT).show();
+                            //throw error log
                         }
 
                     }
@@ -118,6 +104,17 @@ public class signin extends AppCompatActivity
             }
 
         });
+        forgotpassword=(TextView)findViewById(R.id.signin_forgotpasswod);
+        forgotpassword.setPaintFlags(forgotpassword.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG); //put under line
+        forgotpassword.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view)
+            {
+                Intent myIntent = new Intent(getApplicationContext(), forgotpassword.class);
+                startActivity(myIntent);
+            }
+
+        });
+
     }
 
     @Override

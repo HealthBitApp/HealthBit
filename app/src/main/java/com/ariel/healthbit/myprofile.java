@@ -28,7 +28,6 @@ public class myprofile extends AppCompatActivity
         return bmiResult;
     }
     Toolbar toolbar;
-    Button back;
     TextView fullname,datebirth,height,email,bmi;
     DatabaseReference refUser,refDetails;
     FirebaseAuth fb;
@@ -83,13 +82,6 @@ public class myprofile extends AppCompatActivity
         toolbar = (Toolbar) findViewById(R.id.toolbarMYPROFILE);
         setSupportActionBar(toolbar);
 
-        back = (Button) findViewById(R.id.backMyProfile);
-        back.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent myIntent = new Intent(getApplicationContext(), MainProfile.class);
-                startActivity(myIntent);
-            }
-        });
     }
 
     @Override

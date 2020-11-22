@@ -19,14 +19,6 @@ public class tips extends AppCompatActivity {
         setContentView(R.layout.activity_tips);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarTIPS);
         setSupportActionBar(toolbar);
-        Button back = (Button) findViewById(R.id.backTips);
-        back.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent myIntent = new Intent(getApplicationContext(), MainProfile.class);
-                startActivity(myIntent);
-            }
-
-        });
     }
 
     @Override

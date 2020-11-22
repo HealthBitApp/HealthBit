@@ -76,22 +76,6 @@
         app:titleTextColor="@color/white"
         tools:targetApi="jelly_bean_mr1" />
 
-    <Button
-        android:id="@+id/backBMI"
-        android:layout_width="70dp"
-        android:layout_height="48dp"
-        android:textStyle="normal|bold|italic"
-        app:backgroundTint="@color/button"
-        app:icon="@drawable/back1"
-        app:iconPadding="18dp"
-        app:iconTintMode="multiply"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.997"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
     <SeekBar
         android:id="@+id/seekbar_height"
         android:layout_width="353dp"

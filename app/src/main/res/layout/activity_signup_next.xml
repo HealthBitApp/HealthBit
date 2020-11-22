@@ -8,6 +8,20 @@
     android:background="@drawable/mainbg"
     tools:context="com.ariel.healthbit.signup_next">
 
+    <ProgressBar
+        android:id="@+id/nextstep_prog"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="48dp"
+        android:layout_height="47dp"
+        android:background="#00F8F5F5"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.954" />
+
     <Button
         android:id="@+id/nextstep_register"
         android:layout_width="282dp"
@@ -71,23 +85,6 @@
         app:layout_constraintVertical_bias="0.0"
         app:subtitleTextColor="@color/white"
         app:titleTextColor="@color/white" />
-
-    <Button
-        android:id="@+id/nextstep_back"
-        android:layout_width="64dp"
-        android:layout_height="49dp"
-        android:textStyle="normal|bold|italic"
-        app:backgroundTint="@color/button"
-        app:icon="@drawable/back1"
-        app:iconPadding="18dp"
-        app:iconTintMode="multiply"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        />
 
     <TextView
         android:id="@+id/nextstep_title"

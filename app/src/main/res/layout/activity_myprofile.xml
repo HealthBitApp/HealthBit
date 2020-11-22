@@ -22,7 +22,7 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.646"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/myprofile_BMI"
         app:layout_constraintStart_toStartOf="@+id/myprofile_BMI"
         app:layout_constraintTop_toTopOf="parent"
@@ -61,37 +61,20 @@
         app:subtitleTextColor="@color/white"
         app:titleTextColor="@color/white" />
 
-    <Button
-        android:id="@+id/backMyProfile"
-        android:layout_width="70dp"
-        android:layout_height="48dp"
-        android:textStyle="normal|bold|italic"
-        app:backgroundTint="@color/button"
-        app:icon="@drawable/back1"
-        app:iconPadding="18dp"
-        app:iconTintMode="multiply"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.997"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
     <TextView
         android:id="@+id/myprofile_date"
-        android:layout_width="158dp"
-        android:layout_height="65dp"
+        android:layout_width="183dp"
+        android:layout_height="55dp"
         android:layout_marginBottom="11dp"
-        android:background="@drawable/borderview"
-        android:gravity="center"
+        android:gravity="left"
         android:text="Date: \n "
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.907"
+        app:layout_constraintHorizontal_bias="0.029"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.401" />
+        app:layout_constraintVertical_bias="0.47" />
 
     <TextView
         android:id="@+id/myprofile_mail"
@@ -113,18 +96,17 @@
 
     <TextView
         android:id="@+id/myprofile_height"
-        android:layout_width="174dp"
-        android:layout_height="65dp"
-        android:background="@drawable/borderview"
-        android:gravity="center"
+        android:layout_width="182dp"
+        android:layout_height="55dp"
+        android:gravity="left"
         android:text="My Height: \n "
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.059"
+        app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.396" />
+        app:layout_constraintVertical_bias="0.366" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -25,12 +26,13 @@ import java.util.Date;
 public class signup_next extends AppCompatActivity
 {
     Toolbar toolbar;
-    Button register,back;
+    Button register;
     EditText height,weight;
     RadioButton gend,male;
     RadioGroup genderR;
     DatePicker birthdate;
     TextView birthdate_textview;
+    ProgressBar prog;
     FirebaseAuth aut;
      @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -41,16 +43,6 @@ public class signup_next extends AppCompatActivity
         toolbar = (Toolbar) findViewById(R.id.toolbarNextStep);
         setSupportActionBar(toolbar);
 
-        //back to first activity og register
-        back = (Button) findViewById(R.id.nextstep_back);
-        back.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view)
-            {
-                Intent myIntent = new Intent(getApplicationContext(), signup.class);
-                startActivity(myIntent);
-            }
-
-        });
 
         //initialize values
          height=(EditText)findViewById(R.id.nextstep_height);
@@ -69,12 +61,13 @@ public class signup_next extends AppCompatActivity
                 year=birthdate.getYear();
                 month=birthdate.getMonth()+1;
                 day=birthdate.getDayOfMonth();
+                prog=(ProgressBar)findViewById(R.id.nextstep_prog);
                 //check if the date are makes sense.(the age of the user is realible)
-                if (year<=Calendar.getInstance().get(Calendar.YEAR)&&year>=Calendar.getInstance().get(Calendar.YEAR)-5)
-                {
-                    birthdate_textview.setError("select birth date");
-                    return;
-                }
+               // if (year<=Calendar.getInstance().get(Calendar.YEAR)&&year>=Calendar.getInstance().get(Calendar.YEAR)-5)
+               // {
+                //    birthdate_textview.setError("select birth date");
+                  //  return;
+               // }
                 //check validity of the height value.
                 String Textheight=height.getText().toString();
                 double h;
@@ -130,11 +123,12 @@ public class signup_next extends AppCompatActivity
                 {
                     gender=gend.getText().toString();
                 }
-
+                prog.setVisibility(View.VISIBLE);
                 //create Detail's object and add it to db
                 Details d=new Details(h, w, new Date(year-1900, month-1, day), gender);
                 DatabaseReference ref= FirebaseDatabase.getInstance().getReference("users");
                 ref.child(aut.getInstance().getUid()).child("details").setValue(d);
+                prog.setVisibility(View.GONE);
                 //open main menu
                 Intent myIntent = new Intent(getApplicationContext(), MainProfile.class);
                 startActivity(myIntent);

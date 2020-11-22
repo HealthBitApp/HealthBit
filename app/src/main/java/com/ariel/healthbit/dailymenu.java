@@ -14,7 +14,7 @@ import com.ariel.healthbit.R;
 public class dailymenu extends AppCompatActivity
 {
    Toolbar toolbar;
-   Button back;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,15 +24,6 @@ public class dailymenu extends AppCompatActivity
         toolbar = (Toolbar) findViewById(R.id.toolbarDAILYMENU);
         setSupportActionBar(toolbar);
 
-        back = (Button) findViewById(R.id.backDailyMenu);
-        back.setOnClickListener(new View.OnClickListener()  //back to main menu
-        {
-            public void onClick(View view) {
-                Intent myIntent = new Intent(getApplicationContext(), MainProfile.class);
-                startActivity(myIntent);
-            }
-
-        });
     }
 
     @Override

@@ -19,14 +19,6 @@ public class store extends AppCompatActivity {
         setContentView(R.layout.activity_store);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarSTORE);
         setSupportActionBar(toolbar);
-        Button back = (Button) findViewById(R.id.backStore);
-        back.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent myIntent = new Intent(getApplicationContext(), MainProfile.class);
-                startActivity(myIntent);
-            }
-
-        });
     }
 
     @Override

@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,7 +25,6 @@ import com.google.firebase.auth.SignInMethodQueryResult;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.function.LongConsumer;
 import java.util.regex.Pattern;
 
 public class signup extends AppCompatActivity
@@ -48,9 +48,10 @@ public class signup extends AppCompatActivity
     }
 
     Toolbar toolbar;
-    Button back,nextstep;
+    Button nextstep;
     TextView login;
     EditText name,lastname,email,password,confirmpass;
+    ProgressBar prog;
     FirebaseAuth ref=FirebaseAuth.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,28 +61,12 @@ public class signup extends AppCompatActivity
         toolbar = (Toolbar) findViewById(R.id.toolbarNextStep);
         setSupportActionBar(toolbar);
 
-        back = (Button) findViewById(R.id.nextstep_back); //move to main activity
-        back.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view)
-            {
-                Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(myIntent);
-            }
-
-        });
-
         name=(EditText)findViewById(R.id.signup_firstname);
         lastname=(EditText)findViewById(R.id.signup_lastname);
         email=(EditText)findViewById(R.id.signup_email);
         password=(EditText)findViewById(R.id.signup_password);
         confirmpass=(EditText)findViewById(R.id.signup_repassword);
         nextstep= (Button) findViewById(R.id.signup_nextstep);
-
-        if(ref.getCurrentUser()!=null) //set text at screen if the user already have an account
-        {
-            Toast.makeText(signup.this, "you already have account", Toast.LENGTH_SHORT).show();
-        }
-
         nextstep.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view)
             {
@@ -91,6 +76,7 @@ public class signup extends AppCompatActivity
                 String TextEmail=email.getText().toString().trim();
                 String Textpassword=password.getText().toString().trim();
                 String TextConfpass=confirmpass.getText().toString().trim();
+                prog=(ProgressBar)findViewById(R.id.signup_prog);
 
                 //name checks
                 if (TextUtils.isEmpty(TextName))
@@ -147,6 +133,7 @@ public class signup extends AppCompatActivity
                     confirmpass.setError("password and confirm password should match!");
                     return;
                 }
+                prog.setVisibility(View.VISIBLE);
                 //connection to db and create new user
                 ref.fetchSignInMethodsForEmail(TextEmail).addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
                     @Override
@@ -157,6 +144,7 @@ public class signup extends AppCompatActivity
                         if(check)
                         {
                             email.setError("email is already exist");
+                            prog.setVisibility(View.GONE);
                             return;
                         }
                     }
@@ -170,10 +158,12 @@ public class signup extends AppCompatActivity
                             User u = new User(TextName, TextLName,ref.getCurrentUser().getEmail()); //create a User's object
                             DatabaseReference ref1= FirebaseDatabase.getInstance().getReference("users");
                             ref1.child(ref.getCurrentUser().getUid()).setValue(u);
+                            prog.setVisibility(View.GONE);
                             Intent myIntent = new Intent(getApplicationContext(), signup_next.class); //move to main menu actiivity
                             startActivity(myIntent);
                         } else {
                             Toast.makeText(signup.this, "not work", Toast.LENGTH_SHORT).show();
+                            prog.setVisibility(View.GONE);
                         }
                     }
                 });

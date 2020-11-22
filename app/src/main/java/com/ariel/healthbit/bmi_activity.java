@@ -50,7 +50,7 @@ public class bmi_activity extends AppCompatActivity
             return "Obese";
     }
     Toolbar toolbar;
-    Button back,BMI;
+    Button BMI;
     SeekBar heightS,weightS;
     TextView cm,kg;
 
@@ -62,15 +62,6 @@ public class bmi_activity extends AppCompatActivity
 
         toolbar = (Toolbar) findViewById(R.id.toolbarBMI);
         setSupportActionBar(toolbar);
-
-        back = (Button) findViewById(R.id.backBMI); //back to main menu
-        back.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent myIntent = new Intent(getApplicationContext(), MainProfile.class);
-                startActivity(myIntent);
-            }
-
-        });
 
         heightS=(SeekBar)findViewById(R.id.seekbar_height);
         heightS.setMax(240); //define min and max value.
