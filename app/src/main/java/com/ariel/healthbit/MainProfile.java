@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -31,11 +32,27 @@ public class MainProfile extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_profile);
+        ref=FirebaseDatabase.getInstance().getReference("users").child(fb.getInstance().getUid());
 
         toolbar = (Toolbar) findViewById(R.id.toolbarMainProfile);
         setSupportActionBar(toolbar);
 
         hello=(TextView)findViewById(R.id.mainprofile_hello);
+        ValueEventListener postListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Get Post object and use the values to update the UI
+                User post = dataSnapshot.getValue(User.class);
+                hello.setText("hello "+post.name);
+                // ...
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError)
+            {
+            }
+        };
+        ref.addValueEventListener(postListener);
 
 
         logout = (Button) findViewById(R.id.mainprofile_logout); //logout, and move to the login activity

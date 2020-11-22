@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mainbg"
+    android:layoutDirection="ltr"
+    android:background="@drawable/lightlogo"
     android:hapticFeedbackEnabled="false"
     tools:context="com.ariel.healthbit.MainActivity">
 
@@ -12,7 +13,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#4F5388"
+        android:background="@color/toolbar"
         android:layoutDirection="ltr"
         android:minHeight="?attr/actionBarSize"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,73 +25,48 @@
         app:subtitleTextColor="@color/white"
         app:titleTextColor="@color/white" />
 
-    <TextView
-        android:id="@+id/activitymain_subtitle"
-        android:layout_width="326dp"
-        android:layout_height="63dp"
-        android:text="welcome to healthbit app"
-        android:textSize="18sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.146" />
-
     <Button
         android:id="@+id/activitymain_signin"
-        android:layout_width="160dp"
-        android:layout_height="42dp"
+        android:layout_width="180dp"
+        android:layout_height="105dp"
         android:background="@drawable/roundbtn"
-        android:text="sign in"
+        android:text="Login"
+        android:textSize="24sp"
         android:textStyle="normal|bold|italic"
-        app:backgroundTint="@color/button"
+        app:backgroundTint="#F6A9A9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.458"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.513" />
+        app:layout_constraintVertical_bias="0.784" />
 
     <Button
         android:id="@+id/activitymain_signup"
-        android:layout_width="167dp"
-        android:layout_height="46dp"
+        android:layout_width="197dp"
+        android:layout_height="47dp"
         android:background="@drawable/roundbtn"
         android:text="sign up"
         android:textStyle="normal|bold|italic"
         app:backgroundTint="@color/button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.352" />
+        app:layout_constraintVertical_bias="0.947" />
 
     <TextView
         android:id="@+id/textSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="click here to sign up"
+        android:text="Don't have an account?"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.474"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.29" />
-
-    <TextView
-        android:id="@+id/TextSignIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="already have an account?"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.445" />
+        app:layout_constraintVertical_bias="0.861" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

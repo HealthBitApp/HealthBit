@@ -15,7 +15,10 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -28,7 +31,7 @@ public class signup_next extends AppCompatActivity
     RadioGroup genderR;
     DatePicker birthdate;
     TextView birthdate_textview;
-    FirebaseAuth ref;
+    FirebaseAuth aut;
      @Override
     protected void onCreate(Bundle savedInstanceState)
      {
@@ -38,6 +41,7 @@ public class signup_next extends AppCompatActivity
         toolbar = (Toolbar) findViewById(R.id.toolbarNextStep);
         setSupportActionBar(toolbar);
 
+        //back to first activity og register
         back = (Button) findViewById(R.id.nextstep_back);
         back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view)
@@ -48,12 +52,14 @@ public class signup_next extends AppCompatActivity
 
         });
 
+        //initialize values
          height=(EditText)findViewById(R.id.nextstep_height);
          weight=(EditText)findViewById(R.id.nextstep_weight);
          birthdate=(DatePicker)findViewById(R.id.nextstep_birthdate);
          genderR=(RadioGroup) findViewById(R.id.nextstep_radioGroup);
          birthdate_textview=(TextView)findViewById(R.id.nextstep_birth);
 
+         //final register button
         register = (Button) findViewById(R.id.nextstep_register);
         register.setOnClickListener(new View.OnClickListener()
         {
@@ -125,8 +131,11 @@ public class signup_next extends AppCompatActivity
                     gender=gend.getText().toString();
                 }
 
-                Details d=new Details(h,w,new Date(year,month,day),gender);
-                d.setdetailstodb(ref.getInstance().getCurrentUser().getUid());
+                //create Detail's object and add it to db
+                Details d=new Details(h, w, new Date(year-1900, month-1, day), gender);
+                DatabaseReference ref= FirebaseDatabase.getInstance().getReference("users");
+                ref.child(aut.getInstance().getUid()).child("details").setValue(d);
+                //open main menu
                 Intent myIntent = new Intent(getApplicationContext(), MainProfile.class);
                 startActivity(myIntent);
 

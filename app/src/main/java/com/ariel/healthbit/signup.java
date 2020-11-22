@@ -21,6 +21,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.SignInMethodQueryResult;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.function.LongConsumer;
 import java.util.regex.Pattern;
@@ -165,8 +167,9 @@ public class signup extends AppCompatActivity
                     public void onComplete(@NonNull Task<AuthResult> task) //checks if the connection was successful
                     {
                         if (task.isSuccessful()) {
-                            User u = new User(ref.getCurrentUser().getUid(), TextName, TextLName); //create a User's object
-                            u.setusertodb(); // call the function which define a new user at the realtime database.
+                            User u = new User(TextName, TextLName,ref.getCurrentUser().getEmail()); //create a User's object
+                            DatabaseReference ref1= FirebaseDatabase.getInstance().getReference("users");
+                            ref1.child(ref.getCurrentUser().getUid()).setValue(u);
                             Intent myIntent = new Intent(getApplicationContext(), signup_next.class); //move to main menu actiivity
                             startActivity(myIntent);
                         } else {

@@ -1,30 +1,34 @@
 package com.ariel.healthbit;
 
 import com.firebase.client.Firebase;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class User
 {
-    private String userID;
-    private String name;
-    private String lname;
-    private Details details;
+    public String name;
+    public String lname;
+    public String email;
+    public String Started;
 
 
     public User() {}
-    public User(String userID,String name,String lname)
+    public User(String name,String lname,String email)
     {
-        this.userID=userID;
         this.name=name;
         this.lname=lname;
+        this.email=email;
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        this.Started = simpleDateFormat.format(new Date());
+
     }
 
 
-    public void setusertodb()
-    {
-        DatabaseReference ref= FirebaseDatabase.getInstance().getReference("users");
-        ref.child(this.userID).child("name").setValue(this.name);
-        ref.child(this.userID).child("lastname").setValue(this.lname);
-    }
 }
