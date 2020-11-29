@@ -146,4 +146,9 @@ public class signup_next extends AppCompatActivity
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+    public void onBackPressed()
+    {
+        //open window with question
+        return;
+    }
 }

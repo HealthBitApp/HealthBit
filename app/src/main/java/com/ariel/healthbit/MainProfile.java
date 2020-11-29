@@ -70,9 +70,10 @@ public class MainProfile extends AppCompatActivity
             public void onClick(View view)
             {
                 Intent myIntent = new Intent(getApplicationContext(), myprofile.class);
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(myIntent);
+                finish();
             }
-
         });
 
         act = (Button) findViewById(R.id.main_dailyact); //move to the activity main

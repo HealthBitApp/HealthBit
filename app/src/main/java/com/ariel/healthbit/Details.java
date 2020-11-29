@@ -34,4 +34,5 @@ public class Details
         this.date=d.date;
     }
 
+
 }

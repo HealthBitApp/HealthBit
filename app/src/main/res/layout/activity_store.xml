@@ -8,7 +8,7 @@
     tools:context="com.ariel.healthbit.store">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarSTORE"
+        android:id="@+id/toolbarPASSWORD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/toolbar"
