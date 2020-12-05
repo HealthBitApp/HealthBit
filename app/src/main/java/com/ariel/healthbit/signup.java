@@ -74,12 +74,12 @@ public class signup extends AppCompatActivity
             public void onClick(View view)
             {
                 //converts the inputs to strings.
-                String TextName=name.getText().toString().trim();
-                String TextLName=lastname.getText().toString().trim();
-                String TextEmail=email.getText().toString().trim();
-                String Textpassword=password.getText().toString().trim();
-                String TextConfpass=confirmpass.getText().toString().trim();
-                String TextPhone=phone.getText().toString().trim();
+                String TextName=name.getText().toString();
+                String TextLName=lastname.getText().toString();
+                String TextEmail=email.getText().toString();
+                String Textpassword=password.getText().toString();
+                String TextConfpass=confirmpass.getText().toString();
+                String TextPhone=phone.getText().toString();
                 prog=(ProgressBar)findViewById(R.id.signup_prog);
 
                 //name checks
@@ -137,15 +137,24 @@ public class signup extends AppCompatActivity
                     confirmpass.setError("password and confirm password should match!");
                     return;
                 }
+                if (TextUtils.isEmpty(TextPhone))
+                {
+                    phone.setError("phone is Required!");
+                    return;
+                }
+                if (TextPhone.length()<=5)
+                {
+                    phone.setError("phone is invalid");
+                    return;
+                }
                 prog.setVisibility(View.VISIBLE);
                 //connection to db and create new user
                 ref.fetchSignInMethodsForEmail(TextEmail).addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
                     @Override
                     public void onComplete(@NonNull Task<SignInMethodQueryResult> task) //check if email already exist
                     {
-//                        boolean check=!task.getResult().getSignInMethods().isEmpty();
-                        boolean check=false;
-                        if(check)
+                      boolean check=!task.getResult().getSignInMethods().isEmpty();
+                        if(!check)
                         {
                             email.setError("email is already exist");
                             prog.setVisibility(View.GONE);

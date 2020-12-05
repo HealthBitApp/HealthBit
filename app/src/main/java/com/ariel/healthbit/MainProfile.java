@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 public class MainProfile extends AppCompatActivity
 {
    Toolbar toolbar;
-   Button logout,bmi,menu,act,tips,myprof,store,weightTracker;
+   Button logout,bmi,menu,act,tips,myprof,store,weightTracker,setting;
    TextView hello;
    DatabaseReference ref;
    FirebaseAuth fb;
@@ -43,7 +43,10 @@ public class MainProfile extends AppCompatActivity
             public void onDataChange(DataSnapshot dataSnapshot)
             {
                 User post = dataSnapshot.getValue(User.class);
-                hello.setText("hello "+post.name);
+                if(post!=null)
+                {
+                    hello.setText("hello " + post.name);
+                }
             }
             @Override
             public void onCancelled(DatabaseError databaseError)
@@ -128,6 +131,16 @@ public class MainProfile extends AppCompatActivity
             public void onClick(View view)
             {
                 Intent myIntent = new Intent(getApplicationContext(), weighttracker.class);
+                startActivity(myIntent);
+            }
+
+        });
+
+        setting = (Button) findViewById(R.id.main_setting); //move to the tips activity
+        setting.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view)
+            {
+                Intent myIntent = new Intent(getApplicationContext(), settingprofile.class);
                 startActivity(myIntent);
             }
 

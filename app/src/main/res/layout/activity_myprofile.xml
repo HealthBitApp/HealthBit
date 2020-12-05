@@ -8,20 +8,36 @@
     tools:context="com.ariel.healthbit.myprofile"
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarMYPROFILE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/toolbar"
+        android:layoutDirection="ltr"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:subtitleTextColor="@color/white"
+        app:titleTextColor="@color/white" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="277dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="310dp"
+            android:layout_height="251dp"
             android:background="@drawable/gradientbackground"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/myprofile_BMI"
-                android:layout_width="145dp"
-                android:layout_height="131dp"
+                android:layout_width="192dp"
+                android:layout_height="156dp"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/borderview"
                 android:gravity="center"
@@ -32,23 +48,25 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.31" />
 
             <TextView
                 android:id="@+id/myprofile_fullname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="376dp"
+                android:layout_height="49dp"
                 android:layout_gravity="center_horizontal"
-                android:text="Wiliam Snoe"
+                android:gravity="center"
+                android:text="rinat oz"
                 android:textColor="@color/black"
-                android:textSize="21sp"
+                android:textSize="30sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintHorizontal_bias="0.536"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.831" />
+                app:layout_constraintVertical_bias="0.882" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -59,7 +77,7 @@
         android:layout_width="363dp"
         android:layout_height="381dp"
         android:layout_gravity="center"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="15dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -80,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="20dp"
-                android:text="Wiliam@gmail.com"
+                android:text="rinat@gmail.com"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -142,7 +160,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/myprofile_cm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -206,6 +224,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="35dp"
             android:background="@drawable/roundbtn"
+            android:drawableLeft="@drawable/ic_baseline_update_24"
             android:text="update profile"
             app:backgroundTint="@color/button" />
     </LinearLayout>

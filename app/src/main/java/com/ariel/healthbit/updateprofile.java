@@ -26,7 +26,12 @@ import java.util.Map;
 
 public class updateprofile extends AppCompatActivity
 {
-    TextView email;
+    private double calculateBmi(double weight, double height) //calculate the BMI by weight&height
+    {
+        double bmiResult = weight / Math.pow(height/100, 2);
+        return bmiResult;
+    }
+    TextView email,bmi;
     EditText weight,height,number,name,lname,phone;
     Button update;
     Toolbar toolbar;
@@ -42,6 +47,7 @@ public class updateprofile extends AppCompatActivity
         refUser= FirebaseDatabase.getInstance().getReference("users").child(auth.getInstance().getUid());
         refDetails= FirebaseDatabase.getInstance().getReference("users").child(auth.getInstance().getUid()).child("details");
         //initialize the xml objects
+        bmi=(TextView)findViewById(R.id.updateprofile_BMI);
         email=(TextView)findViewById(R.id.update_mail);
         name=(EditText)findViewById(R.id.update_name);
         lname=(EditText)findViewById(R.id.update_lastname);
@@ -75,16 +81,13 @@ public class updateprofile extends AppCompatActivity
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Details det=dataSnapshot.getValue(Details.class);
-                if(det!=null) {
-                    double d = det.height;
+                    double h = det.height;
                     double w = det.weight;
-                    height.setHint(""+d);
+                double BMIcalc = calculateBmi(w, h);
+                DecimalFormat df2 = new DecimalFormat("#.##");
+                bmi.setText(String.valueOf("my current \n BMI is \n \n" + df2.format(BMIcalc)));
+                    height.setHint(""+h);
                     weight.setHint(""+w);
-                }
-                else
-                {
-                    //first complete your registion
-                }
             }
             @Override
             public void onCancelled(DatabaseError databaseError)
@@ -189,5 +192,10 @@ public class updateprofile extends AppCompatActivity
     {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
+    }
+    public void onBackPressed()
+    {
+        Intent myIntent = new Intent(getApplicationContext(), myprofile.class);
+        startActivity(myIntent);
     }
 }

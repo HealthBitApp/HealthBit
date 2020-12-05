@@ -10,65 +10,82 @@
 
     <Button
         android:id="@+id/main_store"
-        android:layout_width="309dp"
-        android:layout_height="73dp"
+        android:layout_width="153dp"
+        android:layout_height="116dp"
         android:background="@drawable/roundbtn"
         android:drawableLeft="@drawable/ic_store"
         android:text="store"
         android:textColor="#FFFFFF"
-        app:backgroundTint="@color/toolbar"
+        app:backgroundTint="#B9FFB7CF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintHorizontal_bias="0.116"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.734" />
+        app:layout_constraintVertical_bias="0.702" />
 
     <Button
         android:id="@+id/main_tips"
-        android:layout_width="312dp"
-        android:layout_height="69dp"
+        android:layout_width="158dp"
+        android:layout_height="64dp"
         android:background="@drawable/roundbtn"
         android:drawableLeft="@drawable/ic_tips"
         android:text="tips"
         android:textColor="#FFFFFF"
-        app:backgroundTint="@color/toolbar"
+        app:backgroundTint="#B9FFB7CF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintHorizontal_bias="0.118"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.598" />
+        app:layout_constraintVertical_bias="0.859" />
 
     <Button
         android:id="@+id/main_dailyact"
-        android:layout_width="308dp"
-        android:layout_height="66dp"
+        android:layout_width="150dp"
+        android:layout_height="68dp"
         android:background="@drawable/roundbtn"
         android:drawableLeft="@drawable/ic_activity"
         android:text="daily activity"
         android:textColor="#FFFFFF"
-        app:backgroundTint="@color/toolbar"
+        app:backgroundTint="#B9FFB7CF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintHorizontal_bias="0.892"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.863" />
+        app:layout_constraintVertical_bias="0.864" />
 
     <Button
         android:id="@+id/main_myprofile"
-        android:layout_width="140dp"
-        android:layout_height="41dp"
-        android:text="my profile"
+        android:layout_width="92dp"
+        android:layout_height="66dp"
+        android:drawableLeft="@drawable/ic_baseline_account_circle_24"
         android:textColor="#FFFFFF"
-        app:backgroundTint="@color/toolbar"
+        android:textSize="14sp"
+        app:backgroundTint="#DFCCCC"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.097" />
+        app:layout_constraintVertical_bias="0.084" />
+
+    <Button
+        android:id="@+id/main_setting"
+        android:layout_width="66dp"
+        android:layout_height="52dp"
+        android:drawableTop="@drawable/ic_baseline_settings_24"
+        android:text="setting"
+        android:textColor="#CCC8C8"
+        android:textSize="8sp"
+        app:backgroundTint="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.038"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/mainprofile_logout"
@@ -76,7 +93,7 @@
         android:layout_height="56dp"
         android:text="@string/log_out"
         android:textStyle="normal|bold|italic"
-        app:backgroundTint="@color/button"
+        app:backgroundTint="#B9FFB7CF"
         app:iconPadding="18dp"
         app:iconTintMode="multiply"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -117,50 +134,49 @@
 
     <Button
         android:id="@+id/main_dailyMenu"
-        android:layout_width="314dp"
-        android:layout_height="73dp"
+        android:layout_width="148dp"
+        android:layout_height="114dp"
         android:background="@drawable/roundbtn"
         android:drawableLeft="@drawable/ic_menu"
         android:text="daily menu"
         android:textColor="#FFFFFF"
-        app:backgroundTint="@color/toolbar"
+        app:backgroundTint="#B9FFB7CF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintHorizontal_bias="0.917"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.472" />
+        app:layout_constraintVertical_bias="0.704" />
 
     <Button
         android:id="@+id/main_weightTracker"
-        android:layout_width="308dp"
-        android:layout_height="71dp"
+        android:layout_width="332dp"
+        android:layout_height="142dp"
         android:background="@drawable/roundbtn"
         android:drawableLeft="@drawable/ic_weighttracker"
         android:text="weight tracker"
         android:textColor="#FFFFFF"
-        app:backgroundTint="@color/toolbar"
+        app:backgroundTint="#B9FFB7CF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.204" />
+        app:layout_constraintVertical_bias="0.278" />
 
     <Button
         android:id="@+id/main_BMI"
-        android:layout_width="311dp"
-        android:layout_height="75dp"
+        android:layout_width="322dp"
+        android:layout_height="89dp"
         android:background="@drawable/roundbtn"
         android:drawableLeft="@drawable/ic_baseline_calculate_24"
         android:text="BMI calc"
         android:textColor="#FFFFFF"
-        app:backgroundTint="@color/toolbar"
+        app:backgroundTint="#B9FFB7CF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintHorizontal_bias="0.449"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.339" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

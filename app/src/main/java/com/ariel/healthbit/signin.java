@@ -14,7 +14,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -46,6 +45,7 @@ public class signin extends AppCompatActivity
         email=(EditText)findViewById(R.id.signin_email);
         password=(EditText)findViewById(R.id.signin_password);
         toolbar = (Toolbar) findViewById(R.id.toolbarSignIn);
+        setSupportActionBar(toolbar);
         prog=(ProgressBar) findViewById(R.id.signin_prog);
         setSupportActionBar(toolbar);
 

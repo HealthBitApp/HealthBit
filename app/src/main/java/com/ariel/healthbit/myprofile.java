@@ -51,6 +51,8 @@ public class myprofile extends AppCompatActivity
         weight=(TextView)findViewById(R.id.myprofile_weight);
         update=(Button) findViewById(R.id.updateprofile_update);
         phone=(TextView)findViewById(R.id.myprofile_phone) ;
+        toolbar=(Toolbar)findViewById(R.id.toolbarMYPROFILE);
+        setSupportActionBar(toolbar);
         //read user from db
         ValueEventListener postListener = new ValueEventListener() {
             @Override
@@ -73,14 +75,16 @@ public class myprofile extends AppCompatActivity
             public void onDataChange(DataSnapshot dataSnapshot)
             {
                 Details det=dataSnapshot.getValue(Details.class);
+                if(det!=null) {
                     double h = det.height;
                     double w = det.weight;
                     double BMIcalc = calculateBmi(w, h);
                     DecimalFormat df2 = new DecimalFormat("#.##");
                     bmi.setText(String.valueOf("my current \n BMI is \n \n" + df2.format(BMIcalc)));
                     datebirth.setText(det.date);
-                    height.setText(""+h);
-                    weight.setText(""+w);
+                    height.setText("" + h);
+                    weight.setText("" + w);
+                }
             }
             @Override
             public void onCancelled(DatabaseError databaseError)
@@ -110,7 +114,6 @@ public class myprofile extends AppCompatActivity
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
-    @Override
     public void onBackPressed()
     {
         Intent myIntent = new Intent(getApplicationContext(), MainProfile.class);
