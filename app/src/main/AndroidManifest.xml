@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthBit">
-        <activity android:name=".forgotpassword"></activity>
+        <activity android:name=".updateprofile"></activity>
+        <activity android:name=".weighttracker" />
+        <activity android:name=".forgotpassword" />
         <activity android:name=".signup_next" />
         <activity android:name=".daily_activity" />
         <activity android:name=".dailymenu" />

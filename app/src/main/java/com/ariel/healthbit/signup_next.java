@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -128,11 +129,11 @@ public class signup_next extends AppCompatActivity
                 Details d=new Details(h, w, new Date(year-1900, month-1, day), gender);
                 DatabaseReference ref= FirebaseDatabase.getInstance().getReference("users");
                 ref.child(aut.getInstance().getUid()).child("details").setValue(d);
+                ref.child(aut.getInstance().getUid()).child("details").child("weights").push().setValue((double)w);
                 prog.setVisibility(View.GONE);
                 //open main menu
                 Intent myIntent = new Intent(getApplicationContext(), MainProfile.class);
                 startActivity(myIntent);
-
             }
 
         });

@@ -25,6 +25,8 @@ import com.google.firebase.auth.SignInMethodQueryResult;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.regex.Pattern;
 
 public class signup extends AppCompatActivity
@@ -50,7 +52,7 @@ public class signup extends AppCompatActivity
     Toolbar toolbar;
     Button nextstep;
     TextView login;
-    EditText name,lastname,email,password,confirmpass;
+    EditText name,lastname,email,password,confirmpass,phone;
     ProgressBar prog;
     FirebaseAuth ref=FirebaseAuth.getInstance();
     @Override
@@ -66,6 +68,7 @@ public class signup extends AppCompatActivity
         email=(EditText)findViewById(R.id.signup_email);
         password=(EditText)findViewById(R.id.signup_password);
         confirmpass=(EditText)findViewById(R.id.signup_repassword);
+        phone=(EditText)findViewById(R.id.signup_phone);
         nextstep= (Button) findViewById(R.id.signup_nextstep);
         nextstep.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view)
@@ -76,6 +79,7 @@ public class signup extends AppCompatActivity
                 String TextEmail=email.getText().toString().trim();
                 String Textpassword=password.getText().toString().trim();
                 String TextConfpass=confirmpass.getText().toString().trim();
+                String TextPhone=phone.getText().toString().trim();
                 prog=(ProgressBar)findViewById(R.id.signup_prog);
 
                 //name checks
@@ -155,14 +159,17 @@ public class signup extends AppCompatActivity
                     public void onComplete(@NonNull Task<AuthResult> task) //checks if the connection was successful
                     {
                         if (task.isSuccessful()) {
-                            User u = new User(TextName, TextLName,ref.getCurrentUser().getEmail()); //create a User's object
+                            User u = new User(TextName, TextLName,ref.getCurrentUser().getEmail(),TextPhone); //create a User's object
                             DatabaseReference ref1= FirebaseDatabase.getInstance().getReference("users");
                             ref1.child(ref.getCurrentUser().getUid()).setValue(u);
                             prog.setVisibility(View.GONE);
-                            Intent myIntent = new Intent(getApplicationContext(), signup_next.class); //move to main menu actiivity
+                            Intent myIntent = new Intent(getApplicationContext(), signup_next.class);
+                            myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(myIntent);
-                        } else {
-                            Toast.makeText(signup.this, "not work", Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                            {
+                            Toast.makeText(signup.this, "failed", Toast.LENGTH_SHORT).show();
                             prog.setVisibility(View.GONE);
                         }
                     }
@@ -192,9 +199,11 @@ public class signup extends AppCompatActivity
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+
     public void onBackPressed()
     {
-        //open window with question
-        return;
+            Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(myIntent);
     }
+
 }

@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 public class MainProfile extends AppCompatActivity
 {
    Toolbar toolbar;
-   Button logout,bmi,menu,act,tips,myprof,store;
+   Button logout,bmi,menu,act,tips,myprof,store,weightTracker;
    TextView hello;
    DatabaseReference ref;
    FirebaseAuth fb;
@@ -40,13 +40,11 @@ public class MainProfile extends AppCompatActivity
         hello=(TextView)findViewById(R.id.mainprofile_hello);
         ValueEventListener postListener = new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // Get Post object and use the values to update the UI
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
                 User post = dataSnapshot.getValue(User.class);
                 hello.setText("hello "+post.name);
-                // ...
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError)
             {
@@ -70,7 +68,6 @@ public class MainProfile extends AppCompatActivity
             public void onClick(View view)
             {
                 Intent myIntent = new Intent(getApplicationContext(), myprofile.class);
-                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(myIntent);
                 finish();
             }
@@ -121,6 +118,16 @@ public class MainProfile extends AppCompatActivity
             public void onClick(View view)
             {
                 Intent myIntent = new Intent(getApplicationContext(), tips.class);
+                startActivity(myIntent);
+            }
+
+        });
+
+        weightTracker = (Button) findViewById(R.id.main_weightTracker); //move to the tips activity
+        weightTracker.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view)
+            {
+                Intent myIntent = new Intent(getApplicationContext(), weighttracker.class);
                 startActivity(myIntent);
             }
 

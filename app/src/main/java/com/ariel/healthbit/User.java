@@ -9,6 +9,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class User
 {
@@ -16,10 +18,11 @@ public class User
     public String lname;
     public String email;
     public String Started;
+    public String phone;
 
 
     public User() {}
-    public User(String name,String lname,String email)
+    public User(String name,String lname,String email,String phone)
     {
         this.name=name;
         this.lname=lname;
@@ -27,7 +30,16 @@ public class User
         String pattern = "yyyy-MM-dd";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         this.Started = simpleDateFormat.format(new Date());
+        this.phone=phone;
 
+    }
+    public Map<String, Object> toMap()
+    {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("name", name);
+        result.put("lname", lname);
+        result.put("phone", phone);
+        return result;
     }
 
 
