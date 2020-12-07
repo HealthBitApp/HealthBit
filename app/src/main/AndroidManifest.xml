@@ -20,6 +20,8 @@
         <activity android:name=".signup_next" />
         <activity android:name=".daily_activity" />
         <activity android:name=".dailymenu" />
+        <activity android:name=".list_menu_activity" />
+        <activity android:name=".list_menu_2Activity" />
         <activity android:name=".tips" />
         <activity android:name=".bmi_activity" />
         <activity android:name=".store" />

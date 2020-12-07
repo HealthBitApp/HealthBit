@@ -15,6 +15,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity
 {
+    public static String uid = null;  // Erez add this line 1
     Toolbar toolbar;
     Button signupbutton,signinbutton;
     FirebaseUser user;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity
 
         if(user != null)
         {
+            uid = user.getUid().toString(); // Erez add this line 2
             Intent myIntent = new Intent(getApplicationContext(),MainProfile.class);
             startActivity(myIntent);
             this.finish();

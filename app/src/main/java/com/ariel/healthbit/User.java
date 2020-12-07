@@ -19,6 +19,7 @@ public class User
     public String email;
     public String Started;
     public String phone;
+    public boolean admin;
 
 
     public User() {}
